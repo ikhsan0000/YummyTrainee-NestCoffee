@@ -8,7 +8,10 @@ async function bootstrap() {
     {
       whitelist: true,        //strip out all unneccessary payload outside the dto fromat from POSTed body 
       transform: true,        //transform returned payload to the correct instance from their own respective dto
-      forbidNonWhitelisted: true    //if detected any unneccessary payload field inside body, will throws an error
+      forbidNonWhitelisted: true,   //if detected any unneccessary payload field inside body, will throws an error
+      transformOptions: {
+        enableImplicitConversion: true
+      }
     }
   ));
   await app.listen(3000);
